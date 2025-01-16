@@ -2,7 +2,6 @@ import './config/env';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import keywordRoutes from './routes/keywordRoutes';
 
 const app = express();

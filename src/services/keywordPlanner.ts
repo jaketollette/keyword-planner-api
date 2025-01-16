@@ -109,7 +109,10 @@ export const getCustomers = async () => {
     if (!refreshToken) {
       throw new Error('Missing refresh token');
     }
-    return await client.listAccessibleCustomers(refreshToken);
+    return await client.listAccessibleCustomers(refreshToken).catch((error) => {
+      console.error('Error fetching customers:', error);
+      throw error;
+    });
   } catch (error) {
     console.error('Error fetching customers:', error);
     throw error;
@@ -125,7 +128,7 @@ export const getKeywordPlans = async (request: KeywordPlanRequestDTO): Promise<s
       include_adult_keywords: false,
       keyword_plan_network: enums.KeywordPlanNetwork.GOOGLE_SEARCH,
       keyword_annotation: [enums.KeywordPlanKeywordAnnotation.KEYWORD_CONCEPT],
-      page_size: 100,
+      page_size: 50,
       page_token: '',
       toJSON() { return this; }
     };
@@ -166,7 +169,12 @@ export const getKeywordPlans = async (request: KeywordPlanRequestDTO): Promise<s
         break;
     }
 
-    const response = await customer.keywordPlanIdeas.generateKeywordIdeas(planRequest);
+    console.log('making request', planRequest);
+    const response = await customer.keywordPlanIdeas.generateKeywordIdeas(planRequest).catch((error) => {
+      console.error('Error generating keyword ideas:', error);
+      throw error;
+    });
+
     return response
 
   } catch (error) {

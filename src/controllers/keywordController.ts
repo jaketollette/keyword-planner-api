@@ -15,6 +15,7 @@ export const getKeywords = async (req: Request, res: Response) => {
 export const getRecommendations = async (req: Request, res: Response) => {
   try {
     const request: KeywordPlanRequestDTO = req.body;
+    console.log('Fetching recommendations', req.body);
     const results = await getKeywordPlans(request);
     res.json(results);
   } catch (error) {
@@ -27,6 +28,7 @@ export const getRecommendations = async (req: Request, res: Response) => {
 
 export const listCustomers = async (_req: Request, res: Response) => {
   try {
+    console.log('Fetching customers');
     const customers = await getCustomers();
     res.json(customers);
   } catch (error) {
