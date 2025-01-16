@@ -1,0 +1,122 @@
+{
+  "info": {
+    "name": "Google Ads Keyword Planner API",
+    "description": "Collection for testing Google Ads Keyword Planner API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Get Keywords - Keyword Seed",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/keywords",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "keywords"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestType\": \"keywordSeed\",\n  \"keywords\": [\"organic coffee\", \"coffee beans\"]\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Keywords - URL Seed",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/keywords",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "keywords"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestType\": \"urlSeed\",\n  \"url\": \"https://example-coffee-shop.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Keywords - Combined Seed",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/keywords",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "keywords"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestType\": \"keywordAndUrlSeed\",\n  \"keywords\": [\"organic coffee\"],\n  \"url\": \"https://example-coffee-shop.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Recommendations",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/recommendations",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "recommendations"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestType\": \"keywordSeed\",\n  \"keywords\": [\"organic coffee\", \"coffee beans\"]\n}"
+        }
+      }
+    },
+    {
+      "name": "List Customers",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/customers",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "customers"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
