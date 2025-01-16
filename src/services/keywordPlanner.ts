@@ -125,7 +125,7 @@ export const getKeywordPlans = async (request: KeywordPlanRequestDTO): Promise<s
       include_adult_keywords: false,
       keyword_plan_network: enums.KeywordPlanNetwork.GOOGLE_SEARCH,
       keyword_annotation: [enums.KeywordPlanKeywordAnnotation.KEYWORD_CONCEPT],
-      page_size: 200,
+      page_size: 100,
       page_token: '',
       toJSON() { return this; }
     };
