@@ -10,3 +10,4 @@ console.log('GOOGLE_ADS_CLIENT_ID:', process.env.GOOGLE_ADS_CLIENT_ID?.substring
 console.log('GOOGLE_ADS_CLIENT_SECRET:', process.env.GOOGLE_ADS_CLIENT_SECRET ? 'Present' : 'Missing');
 console.log('GOOGLE_ADS_DEVELOPER_TOKEN:', process.env.GOOGLE_ADS_DEVELOPER_TOKEN ? 'Present' : 'Missing');
 console.log('GOOGLE_ADS_API_REFRESH_TOKEN:', process.env.GOOGLE_ADS_API_REFRESH_TOKEN ? 'Present' : 'Missing');
+console.log('GOOGLE_ADS_CUSTOMER_ID:', process.env.GOOGLE_ADS_CUSTOMER_ID ? 'Present' : 'Missing');

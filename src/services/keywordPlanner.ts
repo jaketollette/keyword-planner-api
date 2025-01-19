@@ -1,4 +1,4 @@
-import { GoogleAdsApi, enums, services, ResourceNames } from 'google-ads-api';
+import { GoogleAdsApi, enums, services } from 'google-ads-api';
 
 export interface KeywordPlanRequestDTO {
   requestType: 'keywordAndUrlSeed' | 'keywordSeed' | 'urlSeed' | 'siteSeed';
@@ -8,16 +8,7 @@ export interface KeywordPlanRequestDTO {
 
 type KeywordCompetitionLevel = "LOW" | "MEDIUM" | "HIGH" | "UNSPECIFIED" | "UNKNOWN";
 
-const competitionOrder: Record<KeywordCompetitionLevel, number> = {
-  'LOW': 1,
-  'MEDIUM': 2,
-  'HIGH': 3,
-  'UNSPECIFIED': 4,
-  'UNKNOWN': 5
-};
-
-const CUSTOMER_ID = '7808970607';
-// const CUSTOMER_ID = '9855835337'; // LIVE
+const CUSTOMER_ID = process.env.GOOGLE_ADS_CUSTOMER_ID || '';
 
 export interface KeywordPlanResponseDTO {
   low: KeywordPlanResponseItemDTO[],
